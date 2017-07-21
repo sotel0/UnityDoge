@@ -19,9 +19,13 @@ public class EnemyBulletS : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) {
 			//damage player
 			PlayerControls2 player = other.gameObject.GetComponent<PlayerControls2>();
-			player.health -= 10;
 
 			//make player's texture flash red
+			player.startFlash();
+
+			//damage player
+			player.health -= 10;
+
 
 			//destroy bullet
 			Destroy (gameObject);

@@ -21,7 +21,7 @@ public class Enemy1S : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
+		if (Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
 			fire ();
 		}
@@ -53,7 +53,7 @@ public class Enemy1S : MonoBehaviour {
 	void fire(){
 		Vector2 bulletPos = transform.position;
 		var bullet = (GameObject)Instantiate (EnemyBullet1, bulletPos, Quaternion.identity);
-		bullet.GetComponent<Renderer>().material.color = new Color(Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),1);
+//		bullet.GetComponent<Renderer>().material.color = new Color(Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),1);
 
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		bullet.GetComponent<Rigidbody2D>().velocity = (player.transform.position - transform.position)* bulletSpeed;
