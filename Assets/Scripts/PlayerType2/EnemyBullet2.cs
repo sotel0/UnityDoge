@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBulletS : MonoBehaviour {
+public class EnemyBullet2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +28,9 @@ public class EnemyBulletS : MonoBehaviour {
 
 
 			//destroy bullet
+			Destroy (gameObject);
+		}
+		if (other.gameObject.CompareTag("Wall")){
 			Destroy (gameObject);
 		}
 	}

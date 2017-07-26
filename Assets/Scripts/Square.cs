@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1S : MonoBehaviour {
+public class Square : MonoBehaviour {
 
 	public GameObject EnemyBullet1;
 	public int health = 100;
 	public float turnSpeed = 150f;
 	public int rotateCount = 39;
-	public int bulletSpeed = 1;
+	public float bulletSpeed = 8f;
 	public float fireRate = 1f;
 	private float nextFire = 0.0f;
 	private int rCount1;
@@ -56,9 +56,11 @@ public class Enemy1S : MonoBehaviour {
 //		bullet.GetComponent<Renderer>().material.color = new Color(Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),1);
 
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
-		bullet.GetComponent<Rigidbody2D>().velocity = (player.transform.position - transform.position)* bulletSpeed;
-
-		Destroy (bullet, 2.0f);
+		
+		Vector3 direction = (player.transform.position - transform.position);
+		direction.Normalize ();
+		bullet.GetComponent<Rigidbody2D> ().velocity = direction* bulletSpeed;
+		Destroy (bullet, 7.0f);
 	}
 		
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBulletS : MonoBehaviour {
+public class PlayerBullet : MonoBehaviour {
 
 
 	void Start(){
@@ -17,9 +17,9 @@ public class PlayerBulletS : MonoBehaviour {
 		//if the collision is with enemy
 		if (collision.gameObject.CompareTag ("Enemy")) {
 			//and the enemy has this script
-			if (collision.gameObject.GetComponent<Enemy1S> () != null) {
+			if (collision.gameObject.GetComponent<Square> () != null) {
 				//decrease its health
-				collision.gameObject.GetComponent<Enemy1S> ().health -= 10;
+				collision.gameObject.GetComponent<Square> ().health -= 10;
 			}
 		}
 	}

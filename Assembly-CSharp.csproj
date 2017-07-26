@@ -46,13 +46,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\Enemy1S.cs" />
-     <Compile Include="Assets\Scripts\EnemyBulletS.cs" />
-     <Compile Include="Assets\Scripts\GameControllerS.cs" />
-     <Compile Include="Assets\Scripts\PlayerBulletS.cs" />
-     <Compile Include="Assets\Scripts\PlayerControls.cs" />
-     <Compile Include="Assets\Scripts\PlayerControls2.cs" />
+     <Compile Include="Assets\Scripts\PlayerBullet.cs" />
+     <Compile Include="Assets\Scripts\PlayerType1\CameraFollow1.cs" />
+     <Compile Include="Assets\Scripts\PlayerType1\EnemyBullet1.cs" />
+     <Compile Include="Assets\Scripts\PlayerType1\GameController1.cs" />
+     <Compile Include="Assets\Scripts\PlayerType1\PlayerControls1.cs" />
+     <Compile Include="Assets\Scripts\PlayerType2\CameraFollow2.cs" />
+     <Compile Include="Assets\Scripts\PlayerType2\EnemyBullet2.cs" />
+     <Compile Include="Assets\Scripts\PlayerType2\GameController2.cs" />
+     <Compile Include="Assets\Scripts\PlayerType2\PlayerControls2.cs" />
+     <Compile Include="Assets\Scripts\Square.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

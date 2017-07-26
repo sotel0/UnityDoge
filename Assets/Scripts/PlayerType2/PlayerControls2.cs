@@ -12,7 +12,7 @@ public class PlayerControls2 : MonoBehaviour {
 	public GameObject Nose;
 	public float fireRate = 0.1f;
 	public float nextFire = 0.0f;
-	public float bulletSpeed = 12f;
+	public float bulletSpeed = 25f;
 
 	private Color normalColor;
 	private Rigidbody2D rb2D;
@@ -61,8 +61,13 @@ public class PlayerControls2 : MonoBehaviour {
 
 	}
 
+	public void startFlash(){
+		StartCoroutine (Flasher ());
+	}
+
 	public IEnumerator Flasher() 
 	{
+
 		for (int i = 0; i < 2; i++){
 			
 			GetComponent<Renderer> ().material.color = Color.red;
@@ -83,9 +88,6 @@ public class PlayerControls2 : MonoBehaviour {
 		Destroy (bullet, 2.0f);
 	}
 
-	public void startFlash(){
-		StartCoroutine (Flasher ());
-	}
 
 
 }

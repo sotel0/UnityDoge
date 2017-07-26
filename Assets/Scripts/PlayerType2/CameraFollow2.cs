@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour {
+public class CameraFollow2 : MonoBehaviour {
 
 	private Vector2 velocity;
 	public float smoothTimeX;
@@ -15,14 +15,6 @@ public class CameraFollow : MonoBehaviour {
 		offset = transform.position - player.transform.position;
 	}
 		
-	void FixedUpdate(){
-		//to make the camera lag behind
-
-//		float posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
-//		float posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
-//		transform.position = new Vector3 (posX, posY, transform.position.z);
-
-	}
 	void LateUpdate () 
 	{
 		// Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.

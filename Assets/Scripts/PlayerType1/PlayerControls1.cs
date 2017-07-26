@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControls : MonoBehaviour {
+public class PlayerControls1 : MonoBehaviour {
+
+	public int health = 100;
 
 	public KeyCode moveUp;
 	public KeyCode moveDown;
 	public KeyCode moveLeft;
 	public KeyCode moveRight;
-	public float speed = 5f;
+	public float speed = 15f;
 
 	public GameObject PlayerBullet;
 	public GameObject Nose;
 	public float fireRate = 0.1f;
 	public float nextFire = 0.0f;
-	public float bulletSpeed = 12f;
-
+	public float bulletSpeed = 25f;
+	private Color normalColor;
 	private Vector2 bulletPos;
 
 
@@ -24,6 +26,7 @@ public class PlayerControls : MonoBehaviour {
 
 	void Start(){
 		rb2D = GetComponent<Rigidbody2D>();
+		normalColor = GetComponent<Renderer> ().material.color;
 	}
 
 
@@ -82,5 +85,20 @@ public class PlayerControls : MonoBehaviour {
 		Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 		//bullet.GetComponent<BulletScript>().velocityB = Nose.transform.up * bulletSpeed;
 		Destroy (bullet, 2.0f);
+	}
+
+	public void startFlash(){
+		StartCoroutine (Flasher ());
+	}
+
+	public IEnumerator Flasher() {
+
+		for (int i = 0; i < 2; i++){
+
+			GetComponent<Renderer> ().material.color = Color.red;
+			yield return new WaitForSeconds(.1f);
+			GetComponent<Renderer> ().material.color = normalColor; 
+			yield return new WaitForSeconds(.1f);
+		}
 	}
 }
