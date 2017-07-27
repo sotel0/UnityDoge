@@ -24,7 +24,7 @@ public class EnemyBullet2 : MonoBehaviour {
 			player.startFlash();
 
 			//damage player
-			player.health -= 10;
+			player.takeDamage(10);
 
 
 			//destroy bullet

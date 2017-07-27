@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControls1 : MonoBehaviour {
 
@@ -12,15 +13,15 @@ public class PlayerControls1 : MonoBehaviour {
 	public KeyCode moveRight;
 	public float speed = 15f;
 
+	public Slider healthSlider;
 	public GameObject PlayerBullet;
 	public GameObject Nose;
 	public float fireRate = 0.1f;
 	public float nextFire = 0.0f;
 	public float bulletSpeed = 25f;
+
 	private Color normalColor;
 	private Vector2 bulletPos;
-
-
 
 	private Rigidbody2D rb2D;
 
@@ -83,7 +84,7 @@ public class PlayerControls1 : MonoBehaviour {
 		var bullet = (GameObject)Instantiate (PlayerBullet, bulletPos, Quaternion.identity);
 		bullet.GetComponent<Rigidbody2D>().velocity = Nose.transform.up * bulletSpeed;
 		Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-		//bullet.GetComponent<BulletScript>().velocityB = Nose.transform.up * bulletSpeed;
+
 		Destroy (bullet, 2.0f);
 	}
 
@@ -91,7 +92,7 @@ public class PlayerControls1 : MonoBehaviour {
 		StartCoroutine (Flasher ());
 	}
 
-	public IEnumerator Flasher() {
+	IEnumerator Flasher() {
 
 		for (int i = 0; i < 2; i++){
 
@@ -100,5 +101,10 @@ public class PlayerControls1 : MonoBehaviour {
 			GetComponent<Renderer> ().material.color = normalColor; 
 			yield return new WaitForSeconds(.1f);
 		}
+	}
+
+	public void takeDamage(int damage){
+		health -= damage;
+
 	}
 }

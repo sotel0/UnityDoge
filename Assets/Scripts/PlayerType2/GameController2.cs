@@ -18,8 +18,6 @@ public class GameController2 : MonoBehaviour {
 	public GameObject player;
 	private PlayerControls2 pc2;
 	private bool restart;
-	private float nextSpawn;
-
 
 	void Start () { 
 		restart = false;
@@ -35,7 +33,7 @@ public class GameController2 : MonoBehaviour {
 
 	void Update () {
 		
-		if (pc2.health == 0) {
+		if (pc2.health <= 0) {
 			GameOver ();
 		}
 			
@@ -57,18 +55,22 @@ public class GameController2 : MonoBehaviour {
 	 IEnumerator Wave1() {
 		Bounds b = spawnBorder.GetComponent<MeshRenderer> ().bounds;
 		bool spawned;
-		//nextSpawn = Time.time + spawnRate;
 
 		for (int i = 0; i < 4; i++){
 			spawned = false;
 
-			//while (!spawned && Time.time > nextSpawn) {\
 			while (!spawned) {
 				
 				Vector2 pos = new Vector2 (Random.Range (b.min.x, b.max.x), Random.Range (b.min.y, b.max.y));
 				var enemy = (GameObject)Instantiate (enemy1, pos, Quaternion.identity);
-				yield return new WaitForSeconds(5f);
-				spawned = true;
+
+				if (Vector3.Distance (enemy.transform.position, player.transform.position) < 15) {
+					Destroy (enemy);
+				} else {
+					spawned = true;
+					yield return new WaitForSeconds(5f);
+				}
+					
 			}
 		}
 	}

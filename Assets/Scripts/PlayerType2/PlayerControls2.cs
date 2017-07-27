@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControls2 : MonoBehaviour {
 
-	public Camera camera1;
+	private Camera camera1;
 
 	public float speed = 10f;
 	public int health = 100;
+	public Slider healthSlider;
+
 	public GameObject PlayerBullet;
 	public GameObject Nose;
 	public float fireRate = 0.1f;
@@ -88,6 +91,10 @@ public class PlayerControls2 : MonoBehaviour {
 		Destroy (bullet, 2.0f);
 	}
 
+	public void takeDamage(int damage){
+		health -= damage;
+		healthSlider.value = health;
+	}
 
 
 }
