@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Flasher.cs" />
      <Compile Include="Assets\Scripts\PlayerBullet.cs" />
      <Compile Include="Assets\Scripts\PlayerType1\CameraFollow1.cs" />
      <Compile Include="Assets\Scripts\PlayerType1\EnemyBullet1.cs" />

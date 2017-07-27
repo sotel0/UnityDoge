@@ -20,6 +20,9 @@ public class PlayerBullet : MonoBehaviour {
 			if (collision.gameObject.GetComponent<Square> () != null) {
 				//decrease its health
 				collision.gameObject.GetComponent<Square> ().health -= 10;
+
+				//make enemy flash
+				collision.gameObject.GetComponent<Flasher> ().startFlash ();
 			}
 		}
 	}

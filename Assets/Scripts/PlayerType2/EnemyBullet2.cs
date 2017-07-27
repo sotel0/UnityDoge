@@ -21,7 +21,7 @@ public class EnemyBullet2 : MonoBehaviour {
 			PlayerControls2 player = other.gameObject.GetComponent<PlayerControls2>();
 
 			//make player's texture flash red
-			player.startFlash();
+			other.gameObject.GetComponent<Flasher>().startFlash();
 
 			//damage player
 			player.takeDamage(10);

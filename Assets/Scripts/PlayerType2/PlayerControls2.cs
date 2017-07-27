@@ -17,13 +17,12 @@ public class PlayerControls2 : MonoBehaviour {
 	public float nextFire = 0.0f;
 	public float bulletSpeed = 25f;
 
-	private Color normalColor;
+
 	private Rigidbody2D rb2D;
 
 	void Start(){
 		camera1 = Camera.main;
 		rb2D = GetComponent<Rigidbody2D>();
-		normalColor = GetComponent<Renderer> ().material.color;
 
 	}
 		
@@ -63,34 +62,24 @@ public class PlayerControls2 : MonoBehaviour {
 		}
 
 	}
-
-	public void startFlash(){
-		StartCoroutine (Flasher ());
-	}
-
-	public IEnumerator Flasher() 
-	{
-
-		for (int i = 0; i < 2; i++){
-			
-			GetComponent<Renderer> ().material.color = Color.red;
-			yield return new WaitForSeconds(.1f);
-			GetComponent<Renderer> ().material.color = normalColor; 
-			yield return new WaitForSeconds(.1f);
-		}
-	}
+		
 
 	void fire(){
+		//instantiate bullet
 		Vector2 bulletPos = Nose.transform.position;
 		var bullet = (GameObject)Instantiate (PlayerBullet, bulletPos, Quaternion.identity);
 
+		//add velocity in the up direction
 		bullet.GetComponent<Rigidbody2D>().velocity = Nose.transform.up * bulletSpeed;
 
+		//ignore collision with player
 		Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
+		//destroy bullet after 2 seconds
 		Destroy (bullet, 2.0f);
 	}
 
+	//remove health and update slider
 	public void takeDamage(int damage){
 		health -= damage;
 		healthSlider.value = health;
