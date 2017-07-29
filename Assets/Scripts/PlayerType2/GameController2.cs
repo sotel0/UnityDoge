@@ -107,7 +107,7 @@ public class GameController2 : MonoBehaviour {
 		
 		//get vector at different angle
 		Vector2 v = Quaternion.AngleAxis (angle, Vector3.forward)*Vector2.one;
-		bullet.GetComponent<Rigidbody2D>().velocity = v * pc2.bulletSpeed;
+		bullet.GetComponent<Rigidbody2D>().velocity = v * 25f;
 
 		Destroy (bullet, 2.0f);
 		angle += 45f;

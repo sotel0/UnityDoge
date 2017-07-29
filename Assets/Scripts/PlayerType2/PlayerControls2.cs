@@ -11,27 +11,25 @@ public class PlayerControls2 : MonoBehaviour {
 	public int health = 100;
 	public Slider healthSlider;
 
-	public GameObject PlayerBullet;
-	public GameObject Nose;
-	public float fireRate = 0.1f;
-	public float nextFire = 0.0f;
-	public float bulletSpeed = 25f;
+	private Gun gunType;
+
 
 
 	private Rigidbody2D rb2D;
 
 	void Start(){
+		gunType =  GameObject.Find ("BasicGun").GetComponent<BasicGun>();
 		camera1 = Camera.main;
 		rb2D = GetComponent<Rigidbody2D>();
+
 
 	}
 		
 	void Update(){
 
 		//fire the bullet, nextFire is for fireRate
-		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
-			nextFire = Time.time + fireRate;
-			fire ();
+		if (Input.GetButton ("Fire1")) {
+			gunType.fire ();
 		}
 	}
 
@@ -63,22 +61,22 @@ public class PlayerControls2 : MonoBehaviour {
 
 	}
 		
-
-	void fire(){
-		//instantiate bullet
-		Vector2 bulletPos = Nose.transform.position;
-		var bullet = (GameObject)Instantiate (PlayerBullet, bulletPos, Quaternion.identity);
-
-		//add velocity in the up direction
-		bullet.GetComponent<Rigidbody2D>().velocity = Nose.transform.up * bulletSpeed;
-
-		//ignore collision with player
-		Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-
-		//destroy bullet after 2 seconds
-		Destroy (bullet, 2.0f);
-	}
-
+//
+//	void fire(){
+//		//instantiate bullet
+//		Vector2 bulletPos = Nose.transform.position;
+//		var bullet = (GameObject)Instantiate (PlayerBullet, bulletPos, Quaternion.identity);
+//
+//		//add velocity in the up direction
+//		bullet.GetComponent<Rigidbody2D>().velocity = Nose.transform.up * bulletSpeed;
+//
+//		//ignore collision with player
+//		Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+//
+//		//destroy bullet after 2 seconds
+//		Destroy (bullet, 2.0f);
+//	}
+//
 	//remove health and update slider
 	public void takeDamage(int damage){
 		health -= damage;

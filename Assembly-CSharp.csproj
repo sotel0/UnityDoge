@@ -46,17 +46,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Flasher.cs" />
-     <Compile Include="Assets\Scripts\PlayerBullet.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\Square.cs" />
+     <Compile Include="Assets\Scripts\GunScripts\BasicGun.cs" />
+     <Compile Include="Assets\Scripts\GunScripts\FixedRotation.cs" />
+     <Compile Include="Assets\Scripts\GunScripts\Gun.cs" />
+     <Compile Include="Assets\Scripts\GunScripts\PlayerBullet.cs" />
+     <Compile Include="Assets\Scripts\GunScripts\ShieldDestroyBullet.cs" />
+     <Compile Include="Assets\Scripts\GunScripts\ShieldRotate.cs" />
      <Compile Include="Assets\Scripts\PlayerType1\CameraFollow1.cs" />
      <Compile Include="Assets\Scripts\PlayerType1\EnemyBullet1.cs" />
      <Compile Include="Assets\Scripts\PlayerType1\GameController1.cs" />
      <Compile Include="Assets\Scripts\PlayerType1\PlayerControls1.cs" />
      <Compile Include="Assets\Scripts\PlayerType2\CameraFollow2.cs" />
      <Compile Include="Assets\Scripts\PlayerType2\EnemyBullet2.cs" />
+     <Compile Include="Assets\Scripts\PlayerType2\Flasher.cs" />
      <Compile Include="Assets\Scripts\PlayerType2\GameController2.cs" />
      <Compile Include="Assets\Scripts\PlayerType2\PlayerControls2.cs" />
-     <Compile Include="Assets\Scripts\Square.cs" />
+     <Compile Include="Assets\Scripts\Shotgun.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
